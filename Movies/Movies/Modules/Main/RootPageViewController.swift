@@ -7,8 +7,14 @@
 
 import UIKit
 
+enum ScrollDirection{
+    case goingLeft
+    case goingRight
+}
+
 protocol RootPageDelegate {
     func currentPage(_ index : Int)
+    func scrollDetails(direction: ScrollDirection, percent: CGFloat, index: Int)
 }
 
 class RootPageViewController: UIPageViewController {
@@ -16,11 +22,15 @@ class RootPageViewController: UIPageViewController {
     var subViewController = [UIViewController]()
     var curremtIndex : Int = 0
     var delegaRoot : RootPageDelegate?
+    var currentPage : Int = 0
+    var startOffset : CGFloat = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        delegaRoot?.currentPage(0)
         setupDelegate()
         setupViewController()
+        setScrollViewDelegate()
     }
     
     private func setupDelegate() {
@@ -42,6 +52,11 @@ class RootPageViewController: UIPageViewController {
         setViewControllers([subViewController[index]], direction: direction, animated: animateds)
     }
     
+    private func setScrollViewDelegate(){
+        guard let scrollView = view.subviews.filter({$0 is UIScrollView}).first as? UIScrollView else {return}
+        scrollView.delegate = self
+    }
+    
 }
 
 //MARK: - UIPageViewControllerDataSource
@@ -60,6 +75,8 @@ extension RootPageViewController : UIPageViewControllerDataSource {
     func presentationCount(for pageViewController: UIPageViewController) -> Int {
         return subViewController.count
     }
+    
+    
 
 }
 
@@ -73,4 +90,25 @@ extension RootPageViewController : UIPageViewControllerDelegate {
         }
     }
     
+}
+extension RootPageViewController : UIScrollViewDelegate{
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        startOffset = scrollView.contentOffset.x
+        print("startOffset: \(startOffset)")
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        var direction = 0 //Scroll stopped
+        if startOffset < scrollView.contentOffset.x{
+            direction = 1 //right
+        }else if startOffset > scrollView.contentOffset.x{
+            direction = -1 //left
+        }
+        
+        let positionFromStartOfCurrentPage = abs(startOffset - scrollView.contentOffset.x)
+        let percent = positionFromStartOfCurrentPage /  self.view.frame.width
+        delegaRoot?.scrollDetails(direction: (direction == 1) ? .goingRight : .goingLeft, percent: percent, index: currentPage)
+        print("percent: \(percent)")
+        print("direction: \(direction)")
+    }
 }
