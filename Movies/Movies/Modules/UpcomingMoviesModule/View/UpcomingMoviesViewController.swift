@@ -7,23 +7,50 @@
 
 import UIKit
 
-class UpcomingMoviesViewController: UIViewController {
-
+class UpcomingMoviesViewController: BaseViewController {
+    
+    @IBOutlet weak var tableView: UITableView!
+    lazy var presenter = UpcomingPresenter(delegate: self)
+    private var listUpcomingMovies : [ItemMovieModel] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setupTableView()
+        Task{
+            await presenter.getUpcomingMovies()
+        }
+    }
+    
+    private func setupTableView(){
+        tableView.register(cell: MovieCell.self)
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.separatorColor = .clear
     }
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+}
+extension UpcomingMoviesViewController: UpcomingMoviesViewProtocol {
+    func getData(listUpcomingMovies : [ItemMovieModel]){
+        self.listUpcomingMovies = listUpcomingMovies
+        print(self.listUpcomingMovies)
+        self.tableView.reloadData()
     }
-    */
+}
+extension UpcomingMoviesViewController: UITableViewDataSource{
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return listUpcomingMovies.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let movieCell = tableView.dequeueReusableCell(for: MovieCell.self, for: indexPath)
+        movieCell.configCell(movie: listUpcomingMovies[indexPath.row])
+        return movieCell
+    }
+    
+    
+}
 
+extension UpcomingMoviesViewController: UITableViewDelegate{
+    
 }

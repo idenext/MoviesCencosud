@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class MovieCell: UITableViewCell {
     
@@ -25,7 +26,7 @@ class MovieCell: UITableViewCell {
         lblVoteAverage.text = "\(movie.voteAverage)"
         let baseUrl: RequestModel.URLInitial = .imagePoster
         let url = URL(string: "\(baseUrl.rawValue)\(movie.posterPath)")
-        
+        imagePosterMovie.kf.setImage(with: url)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
