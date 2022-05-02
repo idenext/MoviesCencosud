@@ -38,6 +38,8 @@
 		4381EED828203174007DE7B2 /* UpcomingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4381EED728203174007DE7B2 /* UpcomingPresenter.swift */; };
 		4381EEDB2820325A007DE7B2 /* UpcomingMoviesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4381EEDA2820325A007DE7B2 /* UpcomingMoviesProvider.swift */; };
 		4381EEDD28203E3B007DE7B2 /* TopRatedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4381EEDC28203E3B007DE7B2 /* TopRatedPresenter.swift */; };
+		4381EEDF2820403D007DE7B2 /* DetailMovie.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4381EEDE2820403D007DE7B2 /* DetailMovie.storyboard */; };
+		4381EEE128204063007DE7B2 /* DetailMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4381EEE028204063007DE7B2 /* DetailMovieViewController.swift */; };
 		792054A6E0BEE423DB079AD3 /* Pods_MoviesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 008F4577D4BBA291FF696517 /* Pods_MoviesTests.framework */; };
 		A1697B6E60B47E1C444EC706 /* Pods_Movies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 510D12176C2BB6169E81B6FA /* Pods_Movies.framework */; };
 		A55F620D0D6D00A144F1A57A /* Pods_Movies_MoviesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1C4FE5FC3A8633DE4D9EC9A /* Pods_Movies_MoviesUITests.framework */; };
@@ -99,6 +101,8 @@
 		4381EED728203174007DE7B2 /* UpcomingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingPresenter.swift; sourceTree = "<group>"; };
 		4381EEDA2820325A007DE7B2 /* UpcomingMoviesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingMoviesProvider.swift; sourceTree = "<group>"; };
 		4381EEDC28203E3B007DE7B2 /* TopRatedPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopRatedPresenter.swift; sourceTree = "<group>"; };
+		4381EEDE2820403D007DE7B2 /* DetailMovie.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailMovie.storyboard; sourceTree = "<group>"; };
+		4381EEE028204063007DE7B2 /* DetailMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMovieViewController.swift; sourceTree = "<group>"; };
 		510D12176C2BB6169E81B6FA /* Pods_Movies.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Movies.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		755A81A4405AF5BF2AB715EB /* Pods-MoviesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoviesTests.debug.xcconfig"; path = "Target Support Files/Pods-MoviesTests/Pods-MoviesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		85B2943869608F9AF84687A8 /* Pods-Movies.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movies.release.xcconfig"; path = "Target Support Files/Pods-Movies/Pods-Movies.release.xcconfig"; sourceTree = "<group>"; };
@@ -366,6 +370,8 @@
 		0B1CECB1281E5BAE0065489A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4381EEDE2820403D007DE7B2 /* DetailMovie.storyboard */,
+				4381EEE028204063007DE7B2 /* DetailMovieViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -550,6 +556,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4381EEDF2820403D007DE7B2 /* DetailMovie.storyboard in Resources */,
 				0BD42E57281CDF9100B5C1B2 /* UpcomingMoviesViewController.xib in Resources */,
 				0BAE3EC6281F913500613705 /* MovieCell.xib in Resources */,
 				0BD42E4F281CDF2B00B5C1B2 /* TopRatedMoviesView.xib in Resources */,
@@ -694,6 +701,7 @@
 				4381EEDB2820325A007DE7B2 /* UpcomingMoviesProvider.swift in Sources */,
 				0BAE3EC9281FA1DC00613705 /* UITableView+Extension.swift in Sources */,
 				0BD42E52281CDF6600B5C1B2 /* PopularMoviesViewController.swift in Sources */,
+				4381EEE128204063007DE7B2 /* DetailMovieViewController.swift in Sources */,
 				0BAE3EBD281F7AA600613705 /* PopularPresenter.swift in Sources */,
 				0B08AE30281CD157004E091A /* MovieModel.swift in Sources */,
 				0B08AE35281CDBFB004E091A /* RootPageViewController.swift in Sources */,

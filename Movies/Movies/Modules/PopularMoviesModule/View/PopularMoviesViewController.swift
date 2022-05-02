@@ -47,9 +47,10 @@ extension PopularMoviesViewController: UITableViewDataSource{
         return movieCell
     }
     
-    
 }
 
 extension PopularMoviesViewController: UITableViewDelegate{
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        showDetailMovie(movie: listPopularMovies[indexPath.row])
+    }
 }

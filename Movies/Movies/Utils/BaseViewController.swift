@@ -89,6 +89,12 @@ extension BaseViewController{
         present(alert, animated: true)
     }
     
+    func showDetailMovie(movie:ItemMovieModel){
+        let vc = UIStoryboard.init(name: "DetailMovie", bundle: Bundle.main).instantiateViewController(withIdentifier: "DetailMovieViewController") as? DetailMovieViewController
+        vc?.movie = movie
+        self.present(vc!, animated: true)
+    }
+    
     func loadingView(_ state : LoadingViewState){
         switch state {
         case .show:

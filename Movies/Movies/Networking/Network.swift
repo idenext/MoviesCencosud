@@ -34,7 +34,6 @@ class Network {
             }
             let decoder = JSONDecoder()
             do{
-                print(requestModel.endPoint)
                 let decodeData = try decoder.decode(T.self, from: data)
                 return decodeData
             }catch{

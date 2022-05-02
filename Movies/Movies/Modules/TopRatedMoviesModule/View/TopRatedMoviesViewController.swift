@@ -45,10 +45,10 @@ extension TopRatedMoviesViewController: UITableViewDataSource{
         movieCell.configCell(movie: listTopRatedMovies[indexPath.row])
         return movieCell
     }
-    
-    
 }
 
 extension TopRatedMoviesViewController: UITableViewDelegate{
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        showDetailMovie(movie: listTopRatedMovies[indexPath.row])
+    }
 }

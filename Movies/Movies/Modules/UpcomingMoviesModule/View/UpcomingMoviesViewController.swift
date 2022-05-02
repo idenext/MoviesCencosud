@@ -32,7 +32,6 @@ class UpcomingMoviesViewController: BaseViewController {
 extension UpcomingMoviesViewController: UpcomingMoviesViewProtocol {
     func getData(listUpcomingMovies : [ItemMovieModel]){
         self.listUpcomingMovies = listUpcomingMovies
-        print(self.listUpcomingMovies)
         self.tableView.reloadData()
     }
 }
@@ -47,10 +46,10 @@ extension UpcomingMoviesViewController: UITableViewDataSource{
         movieCell.configCell(movie: listUpcomingMovies[indexPath.row])
         return movieCell
     }
-    
-    
 }
 
 extension UpcomingMoviesViewController: UITableViewDelegate{
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        showDetailMovie(movie: listUpcomingMovies[indexPath.row])
+    }
 }
