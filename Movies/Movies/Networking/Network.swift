@@ -13,7 +13,7 @@ class Network {
     static func callService<T: Decodable>(_ requestModel: RequestModel, _ modelType: T.Type) async throws -> T{
 
         var serviceUrl = URLComponents(string: requestModel.getURL())
-        serviceUrl?.queryItems = buildQueryItems(params: requestModel.queryItems ?? [:])
+        serviceUrl?.queryItems = buildQueryItems(params: requestModel.queryItems )
         serviceUrl?.queryItems?.append(URLQueryItem(name: "api_key", value: Constants.apiKey))
         
         guard let componentURL = serviceUrl?.url else {
@@ -32,7 +32,6 @@ class Network {
             if (httpResponse.statusCode > 299){
                 throw NetworkError.statusCodeError
             }
-            
             let decoder = JSONDecoder()
             do{
                 let decodeData = try decoder.decode(T.self, from: data)

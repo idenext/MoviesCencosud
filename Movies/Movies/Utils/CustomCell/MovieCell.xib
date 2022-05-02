@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="224" id="KGk-i7-Jjw" customClass="MovieCell" customModule="Movies" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="632" height="224"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="632" height="224"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rectangle.portrait.and.arrow.right.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="AbR-Te-QiM">
+                        <rect key="frame" x="20" y="12" width="120" height="194"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="120" id="JfD-LX-pjE"/>
+                        </constraints>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="45C-Js-ODm">
+                        <rect key="frame" x="20" y="218" width="592" height="1"/>
+                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="9NJ-FI-bYa"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Batman" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZeW-k0-i81">
+                        <rect key="frame" x="150" y="30" width="462" height="26.5"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7.8" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H1k-sH-zQC">
+                        <rect key="frame" x="581" y="186" width="31" height="20"/>
+                        <fontDescription key="fontDescription" name="Menlo-BoldItalic" family="Menlo" pointSize="17"/>
+                        <color key="textColor" systemColor="systemPinkColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bV2-JR-6Yx">
+                        <rect key="frame" x="150" y="71.5" width="462" height="85"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="85" id="MQr-Dt-gbd"/>
+                        </constraints>
+                        <string key="text">In his second year of fighting crime, Batman uncovers corruption in Gotham City that connects to his own family while facing a serial killer known as the Riddler.</string>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" systemColor="systemGray2Color"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="AbR-Te-QiM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="853-WD-5ts"/>
+                    <constraint firstAttribute="trailing" secondItem="45C-Js-ODm" secondAttribute="trailing" constant="20" id="88D-y7-NGV"/>
+                    <constraint firstItem="45C-Js-ODm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="9Oq-m7-s1O"/>
+                    <constraint firstItem="45C-Js-ODm" firstAttribute="top" secondItem="AbR-Te-QiM" secondAttribute="bottom" constant="12" id="Ggf-QO-SM9"/>
+                    <constraint firstItem="bV2-JR-6Yx" firstAttribute="top" secondItem="ZeW-k0-i81" secondAttribute="bottom" constant="15" id="Ibi-Tf-uAd"/>
+                    <constraint firstItem="45C-Js-ODm" firstAttribute="top" secondItem="H1k-sH-zQC" secondAttribute="bottom" constant="12" id="Ljg-Vq-ejd"/>
+                    <constraint firstItem="ZeW-k0-i81" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="30" id="O6i-f4-1Ld"/>
+                    <constraint firstItem="ZeW-k0-i81" firstAttribute="leading" secondItem="AbR-Te-QiM" secondAttribute="trailing" constant="10" id="WvI-pJ-1A8"/>
+                    <constraint firstAttribute="bottom" secondItem="45C-Js-ODm" secondAttribute="bottom" constant="5" id="Z8e-eS-GGw"/>
+                    <constraint firstItem="AbR-Te-QiM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="mxx-Lo-kuM"/>
+                    <constraint firstAttribute="trailing" secondItem="H1k-sH-zQC" secondAttribute="trailing" constant="20" id="tDa-cV-9Ju"/>
+                    <constraint firstAttribute="trailing" secondItem="bV2-JR-6Yx" secondAttribute="trailing" constant="20" id="wq2-vy-79B"/>
+                    <constraint firstItem="bV2-JR-6Yx" firstAttribute="leading" secondItem="AbR-Te-QiM" secondAttribute="trailing" constant="10" id="xbb-nO-tU1"/>
+                    <constraint firstAttribute="trailing" secondItem="ZeW-k0-i81" secondAttribute="trailing" constant="20" id="yDT-Vh-ci9"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="imagePosterMovie" destination="AbR-Te-QiM" id="hbc-1B-cFv"/>
+                <outlet property="lblMovieTitle" destination="ZeW-k0-i81" id="ChS-Wu-Et3"/>
+                <outlet property="lblOverview" destination="bV2-JR-6Yx" id="8LI-Lc-zfv"/>
+                <outlet property="lblVoteAverage" destination="H1k-sH-zQC" id="tcp-en-q7e"/>
+            </connections>
+            <point key="canvasLocation" x="181.15942028985509" y="198.21428571428569"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="rectangle.portrait.and.arrow.right.fill" catalog="system" width="128" height="108"/>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

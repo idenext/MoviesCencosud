@@ -7,8 +7,11 @@
 
 import Foundation
 
-class PopularMoviesProvider {
-    
+protocol PopularMoviesProviderProtocol {
+    func getPopularMovies()  async throws -> MovieModel
+}
+
+class PopularMoviesProvider: PopularMoviesProviderProtocol {
     func getPopularMovies()  async throws -> MovieModel {
         let requestModel = RequestModel(endPoint: .popularMovie)
         do{
