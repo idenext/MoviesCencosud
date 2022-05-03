@@ -8,8 +8,10 @@
 import UIKit
 
 class MainViewController: BaseViewController {
-    var rootPageViewcontroller :RootPageViewController!
+    
+    @IBOutlet var searchBarView: UISearchBar!
     @IBOutlet weak var tabsView: TabsView!
+    var rootPageViewcontroller :RootPageViewController!
     private var options : [String] = ["POPULAR MOVIE","TOP RATED MOVIE","UPCOMING MOVIE"]
     
     var currentPageIndex : Int = 0{
@@ -44,8 +46,14 @@ class MainViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configNavigationBar()
+        setupSearchBar()
         tabsView.buildView(delegate: self, options: options)
+    }
+    
+    func setupSearchBar(){
+        navigationItem.titleView = searchBarView
+        setupTextFieldsAccessoryView()
+        searchBarView.delegate = self
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -107,5 +115,24 @@ extension MainViewController : TabsViewProtocol{
         rootPageViewcontroller.setViewControllerFromIndex(index: index, direction: direction)
         
         currentPageIndex = index
+    }
+}
+extension MainViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        NotificationCenter.default.post(name: Notification.Name("NotificationIdentifier"), object: nil, userInfo: ["search" : searchText])
+    }
+
+    func setupTextFieldsAccessoryView() {
+        let toolBar: UIToolbar = UIToolbar(frame:CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 44))
+        toolBar.barStyle = UIBarStyle.default
+        toolBar.isTranslucent = false
+        let flexsibleSpace: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        let doneButton: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(didPressDoneButton))
+        toolBar.items = [flexsibleSpace, doneButton]
+        searchBarView.inputAccessoryView = toolBar
+    }
+
+    @objc func didPressDoneButton(button: UIButton) {
+        searchBarView.resignFirstResponder()
     }
 }

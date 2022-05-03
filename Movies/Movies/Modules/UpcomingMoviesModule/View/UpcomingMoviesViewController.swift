@@ -12,10 +12,12 @@ class UpcomingMoviesViewController: BaseViewController {
     @IBOutlet weak var tableView: UITableView!
     lazy var presenter = UpcomingPresenter(delegate: self)
     private var listUpcomingMovies : [ItemMovieModel] = []
+    private var filteredMovies: [ItemMovieModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.methodOfReceivedNotification(notification:)), name: Notification.Name("NotificationIdentifier"), object: nil)
         Task{
             await presenter.getUpcomingMovies()
         }
@@ -27,11 +29,22 @@ class UpcomingMoviesViewController: BaseViewController {
         tableView.dataSource = self
         tableView.separatorColor = .clear
     }
+    
+    @objc func methodOfReceivedNotification(notification: Notification){
+        let userInfo = notification.userInfo! as NSDictionary
+        let textSearch = userInfo["search"] as! String
+        let auxList: [ItemMovieModel] = self.listUpcomingMovies.filter{
+            $0.title.lowercased().contains(textSearch.lowercased())
+        }
+        self.listUpcomingMovies = textSearch.count == 0 ? filteredMovies:auxList
+        tableView.reloadData()
+    }
 
 }
 extension UpcomingMoviesViewController: UpcomingMoviesViewProtocol {
     func getData(listUpcomingMovies : [ItemMovieModel]){
         self.listUpcomingMovies = listUpcomingMovies
+        self.filteredMovies = listUpcomingMovies
         self.tableView.reloadData()
     }
 }

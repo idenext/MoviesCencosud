@@ -174,7 +174,7 @@
 			children = (
 				0B1CECA4281E58710065489A /* Utils */,
 				0B1CEC9D281E51D20065489A /* Networking */,
-				0B08AE36281CDD03004E091A /* Model */,
+				0B08AE36281CDD03004E091A /* GenericModel */,
 				0B08AE2C281CCF0C004E091A /* Modules */,
 				0B08ADFC281CCB99004E091A /* AppDelegate.swift */,
 				0B08ADFE281CCB99004E091A /* SceneDelegate.swift */,
@@ -245,12 +245,12 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
-		0B08AE36281CDD03004E091A /* Model */ = {
+		0B08AE36281CDD03004E091A /* GenericModel */ = {
 			isa = PBXGroup;
 			children = (
 				0B08AE2F281CD157004E091A /* MovieModel.swift */,
 			);
-			path = Model;
+			path = GenericModel;
 			sourceTree = "<group>";
 		};
 		0B08AE37281CDDA8004E091A /* TopRatedMoviesModule */ = {
@@ -922,7 +922,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6BWTGGVVGH;
+				DEVELOPMENT_TEAM = GK64Y4AB6R;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Movies/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -952,7 +952,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6BWTGGVVGH;
+				DEVELOPMENT_TEAM = GK64Y4AB6R;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Movies/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
